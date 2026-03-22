@@ -1,0 +1,884 @@
+# Pythonlings – Exercise registry
+# Order and hints for all exercises
+
+# ─── Introduction ───────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "intro1"
+path = "exercises/00_intro/intro1.py"
+topic = "Introduction"
+hint = """
+Strings are written in Python with quotation marks:
+    message = "Hello, Pythonlings!"
+Replace `None` with this string.
+"""
+
+[[exercise]]
+name = "intro2"
+path = "exercises/00_intro/intro2.py"
+topic = "Introduction"
+hint = """
+In Python, comments start with # (hash), not with //.
+Change `// This is not a Python comment` to `# This is a Python comment`.
+
+For result: The expression 7 * 6 equals 42.
+For greeting: Just assign a string: greeting = "Good Morning"
+"""
+
+[[exercise]]
+name = "intro3"
+path = "exercises/00_intro/intro3.py"
+topic = "Introduction"
+hint = """
+Type conversion functions in Python:
+    int("25")     → 25    (string to integer)
+    float("9.99") → 9.99  (string to float)
+    str(42)       → "42"  (number to string)
+
+For total: int(price) truncates the decimal places → 9.
+So: total = age + int(price) = 25 + 9 = 34
+"""
+
+# ─── Variables ──────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "variables1"
+path = "exercises/01_variables/variables1.py"
+topic = "Variables"
+hint = """
+In Python you assign values with =:
+    name = "Alice"       # string: always in quotes
+    age = 30             # int: whole number without quotes
+    is_student = True    # bool: True or False (capitalized!)
+    height = 1.75        # float: decimal number with dot (not comma)
+"""
+
+[[exercise]]
+name = "variables2"
+path = "exercises/01_variables/variables2.py"
+topic = "Variables"
+hint = """
+Multiple assignment: x, y = 10, 20
+Swap without a temp variable: x, y = y, x
+
+This works because Python evaluates BOTH values on the right first,
+then assigns.
+
+a, b, c = 1, 2, 3  ← All three in one line!
+"""
+
+[[exercise]]
+name = "variables3"
+path = "exercises/01_variables/variables3.py"
+topic = "Variables"
+hint = """
+type(value) returns the type:
+    type(3.14)  → <class 'float'>
+
+isinstance(value, type) checks whether a value has a type:
+    isinstance(42, int)    → True
+    isinstance(42, float)  → False  (42 is not a float!)
+    isinstance(42.0, float) → True
+"""
+
+[[exercise]]
+name = "variables4"
+path = "exercises/01_variables/variables4.py"
+topic = "Variables"
+hint = """
+Augmented assignment is shorthand:
+    points += 50   is the same as   points = points + 50
+    points -= 30   is the same as   points = points - 30
+    points *= 2    is the same as   points = points * 2
+    points //= 4   is the same as   points = points // 4
+
+Step by step:
+    100 + 50 = 150
+    150 - 30 = 120
+    120 * 2  = 240
+    240 // 4 = 60
+"""
+
+# ─── Functions ──────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "functions1"
+path = "exercises/02_functions/functions1.py"
+topic = "Functions"
+hint = """
+Function structure:
+    def name(parameter):
+        return result
+
+For greet: Use an f-string:
+    return f"Hello, {name}!"
+
+For square:
+    return n ** 2   or   return n * n
+"""
+
+[[exercise]]
+name = "functions2"
+path = "exercises/02_functions/functions2.py"
+topic = "Functions"
+hint = """
+Multiple return values as a tuple:
+    return quotient, remainder   ← returns (quotient, remainder)
+
+For divide: Use // for integer division and % for remainder:
+    return a // b, a % b
+
+For is_even: An even number has no remainder when divided by 2:
+    return n % 2 == 0
+"""
+
+[[exercise]]
+name = "functions3"
+path = "exercises/02_functions/functions3.py"
+topic = "Functions"
+hint = """
+Default arguments are specified AFTER required arguments:
+    def power(base, exponent=2):
+        return base ** exponent
+
+For greeting: Use if/elif for the different languages:
+    if language == "de":
+        return f"Hallo, {name}!"
+    elif language == "en":
+        return f"Hello, {name}!"
+    elif language == "es":
+        return f"¡Hola, {name}!"
+"""
+
+[[exercise]]
+name = "functions4"
+path = "exercises/02_functions/functions4.py"
+topic = "Functions"
+hint = """
+*args collects any number of positional arguments into a tuple:
+    def total(*numbers):
+        return sum(numbers)   # numbers is a tuple
+
+**kwargs collects keyword arguments into a dict:
+    def describe(**fields):
+        # fields is a dict like {"name": "Alice", "age": 30}
+
+For describe: Sort the keys alphabetically:
+    parts = [f"{k}={v}" for k, v in sorted(fields.items())]
+    return ", ".join(parts)
+"""
+
+[[exercise]]
+name = "functions5"
+path = "exercises/02_functions/functions5.py"
+topic = "Functions"
+hint = """
+For global variables you need the `global` keyword:
+    def increment_counter():
+        global counter
+        counter += 1
+
+For nested functions you need `nonlocal`:
+    def create_counter():
+        count = 0
+        def tick():
+            nonlocal count
+            count += 1
+        tick()
+        return count
+"""
+
+# ─── Conditions ─────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "if_else1"
+path = "exercises/03_if_else/if_else1.py"
+topic = "Conditions"
+hint = """
+Basic structure:
+    if n > 0:
+        return "positive"
+    elif n < 0:
+        return "negative"
+    else:
+        return "zero"
+
+Note: Use spaces, not tabs, and colons at the end!
+"""
+
+[[exercise]]
+name = "if_else2"
+path = "exercises/03_if_else/if_else2.py"
+topic = "Conditions"
+hint = """
+Check from highest to lowest grade:
+    if score >= 90:
+        return "Excellent"
+    elif score >= 80:
+        return "Good"
+    elif score >= 70:
+        return "Satisfactory"
+    elif score >= 60:
+        return "Sufficient"
+    else:
+        return "Failing"
+"""
+
+[[exercise]]
+name = "if_else3"
+path = "exercises/03_if_else/if_else3.py"
+topic = "Conditions"
+hint = """
+For can_vote: Both conditions must be combined with `and`:
+    return age >= 18 and is_citizen
+
+For ticket_price: Check the most specific cases first:
+    if age < 6:
+        return 0
+    elif is_member:
+        return 5
+    elif age >= 65:
+        return 8
+    else:
+        return 12
+"""
+
+[[exercise]]
+name = "if_else4"
+path = "exercises/03_if_else/if_else4.py"
+topic = "Conditions"
+hint = """
+Ternary expression: value_if_true if condition else value_if_false
+
+Examples:
+    sign = "positive" if x > 0 else "not positive"
+    absolute = x if x >= 0 else -x
+    max_val = a if a > b else b
+
+ALL of this must fit on a single line!
+"""
+
+# ─── Loops ──────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "loops1"
+path = "exercises/04_loops/loops1.py"
+topic = "Loops"
+hint = """
+For sum_up_to: Start with total = 0, add in the loop:
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+
+For evens_up_to: range(start, stop, step) – even numbers start at 0:
+    result = []
+    for i in range(0, n + 1, 2):
+        result.append(i)
+    return result
+"""
+
+[[exercise]]
+name = "loops2"
+path = "exercises/04_loops/loops2.py"
+topic = "Loops"
+hint = """
+For celsius_to_fahrenheit:
+    fahrenheit = celsius * 9/5 + 32
+    result.append(fahrenheit)
+
+For count_words:
+    sentence.split() splits a sentence at whitespace.
+    len(sentence.split()) returns the number of words.
+"""
+
+[[exercise]]
+name = "loops3"
+path = "exercises/04_loops/loops3.py"
+topic = "Loops"
+hint = """
+For count_digits (without str()):
+    digits = 0
+    while n > 0:
+        n //= 10
+        digits += 1
+    return digits
+
+For collatz_length:
+    length = 1
+    while n != 1:
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = 3 * n + 1
+        length += 1
+    return length
+"""
+
+[[exercise]]
+name = "loops4"
+path = "exercises/04_loops/loops4.py"
+topic = "Loops"
+hint = """
+For first_negative:
+    for num in lst:
+        if num < 0:
+            return num   ← break is not needed if you use return
+    return None
+
+For without_multiples:
+    result = []
+    for i in range(1, limit + 1):
+        if i % n == 0:
+            continue
+        result.append(i)
+    return result
+"""
+
+[[exercise]]
+name = "loops5"
+path = "exercises/04_loops/loops5.py"
+topic = "Loops"
+hint = """
+For format_results – combine enumerate and zip:
+    result = []
+    for place, (name, score) in enumerate(zip(names, scores), start=1):
+        result.append(f"Place {place}: {name} - {score} points")
+    return result
+
+For index_of_max:
+    max_index = 0
+    for i, value in enumerate(lst):
+        if value > lst[max_index]:
+            max_index = i
+    return max_index
+"""
+
+# ─── Strings ────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "strings1"
+path = "exercises/05_strings/strings1.py"
+topic = "Strings"
+hint = """
+Raw strings (r"...") do NOT interpret backslashes as special characters:
+    path = r"C:\\Users\\new\\test"   ← with real backslashes!
+
+Normal string with newline:
+    multiline = "Line 1\\nLine 2"   ← \\n is a newline
+
+Length: len("Pythonlings") → 11
+"""
+
+[[exercise]]
+name = "strings2"
+path = "exercises/05_strings/strings2.py"
+topic = "Strings"
+hint = """
+For normalize:
+    return s.strip().title()
+
+For count_vowels:
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
+
+For swap_ends (swap first and last):
+    if len(s) <= 1:
+        return s
+    return s[-1] + s[1:-1] + s[0]
+"""
+
+[[exercise]]
+name = "strings3"
+path = "exercises/05_strings/strings3.py"
+topic = "Strings"
+hint = """
+f-string format specifiers:
+    f"{height:.2f}"    → 2 decimal places: "1.82"
+    f"{score:.1%}"     → percent with 1 decimal: "87.6%"
+    f"{number:03d}"    → 3 digits with leading zeros: "025"
+
+For introduction: f"{name} is {age} years old and {height:.2f} m tall."
+For score_str: f"Score: {score:.1%}"
+For result_str: f"Result: {25:03d}"  ← use the number 25
+"""
+
+[[exercise]]
+name = "strings4"
+path = "exercises/05_strings/strings4.py"
+topic = "Strings"
+hint = """
+String slicing:
+    s[::-1]   → string reversed
+    s[::2]    → every second character
+
+For is_palindrome: Compare s.lower() with s.lower()[::-1]:
+    return s.lower() == s.lower()[::-1]
+
+Remember: "" (empty string) is a palindrome!
+"""
+
+# ─── Lists ──────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "lists1"
+path = "exercises/06_lists/lists1.py"
+topic = "Lists"
+hint = """
+Creating lists:
+    numbers = [10, 20, 30, 40, 50]
+
+Access:
+    numbers[0]   → first element (10)
+    numbers[-1]  → last element (50)
+
+Replace element:
+    numbers[2] = 99   → sets the third element to 99
+
+Length:
+    len(numbers)  → 5
+"""
+
+[[exercise]]
+name = "lists2"
+path = "exercises/06_lists/lists2.py"
+topic = "Lists"
+hint = """
+Building a list step by step:
+    stack.append(1)    → [1]
+    stack.append(2)    → [1, 2]
+    stack.append(3)    → [1, 2, 3]
+    stack.insert(0, 0) → [0, 1, 2, 3]
+    stack.pop()        → removes 3 → [0, 1, 2]
+    stack.remove(2)    → removes value 2 → [0, 1]
+
+Wait – that gives [0, 1], but the goal is [0, 1, 3].
+Check the order of operations again!
+"""
+
+[[exercise]]
+name = "lists3"
+path = "exercises/06_lists/lists3.py"
+topic = "Lists"
+hint = """
+Slicing overview for data = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]:
+    data[:5]    → first 5 elements
+    data[-3:]   → last 3 elements
+    data[::2]   → every second element
+    data[::-1]  → reversed
+    data[2:8]   → index 2 to 7 (inclusive)
+"""
+
+[[exercise]]
+name = "lists4"
+path = "exercises/06_lists/lists4.py"
+topic = "Lists"
+hint = """
+sorted() with key parameter:
+    sorted(words, key=len)       → sort by length
+    sorted(lst, reverse=True)    → descending
+
+For people dict by age:
+    sorted(people, key=lambda p: p["age"])
+
+    or:
+    sorted(people, key=lambda p: p["age"])
+"""
+
+# ─── Dictionaries ───────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "dicts1"
+path = "exercises/07_dicts/dicts1.py"
+topic = "Dictionaries"
+hint = """
+Creating a dict:
+    phonebook = {
+        "Alice": "555-1234",
+        "Bob": "555-5678",
+        "Charlie": "555-9999"
+    }
+
+Read value:  phonebook["Alice"]
+Change value: phonebook["Charlie"] = "555-0000"
+Add entry: phonebook["Dave"] = "555-4321"
+Delete entry: del phonebook["Bob"]
+"""
+
+[[exercise]]
+name = "dicts2"
+path = "exercises/07_dicts/dicts2.py"
+topic = "Dictionaries"
+hint = """
+For invert: Dict comprehension with swapped keys/values:
+    return {v: k for k, v in d.items()}
+
+For safe_add: .get() with default value 0:
+    d[key] = d.get(key, 0) + value
+    return d
+
+For filter_by_value: Dict comprehension with condition:
+    return {k: v for k, v in d.items() if v >= minimum}
+"""
+
+[[exercise]]
+name = "dicts3"
+path = "exercises/07_dicts/dicts3.py"
+topic = "Dictionaries"
+hint = """
+Nested access:
+    config["server"]["timeout"]    → 30
+    config["database"]["name"]     → "production"
+
+For configure: Dict unpacking (** operator):
+    return {**base, **overrides}
+
+When there are key conflicts, the LAST dict wins.
+"""
+
+# ─── Tuples ─────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "tuples1"
+path = "exercises/08_tuples/tuples1.py"
+topic = "Tuples"
+hint = """
+Creating tuples:
+    coordinates = (10, 20)
+    color = (255, 128, 0)
+
+A single-element tuple MUST have a comma:
+    single = (42,)     ← comma is required!
+    not_a_tuple = (42)  ← this is just a number in parentheses!
+
+Tuples are immutable: comment out the line that causes an error!
+"""
+
+[[exercise]]
+name = "tuples2"
+path = "exercises/08_tuples/tuples2.py"
+topic = "Tuples"
+hint = """
+Unpacking a tuple:
+    name, age, job = person
+
+With * for the rest:
+    first, *middle, last = numbers
+
+For min_max: Python has built-in min() and max() functions:
+    return min(lst), max(lst)
+"""
+
+# ─── Error Handling ─────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "error_handling1"
+path = "exercises/09_error_handling/error_handling1.py"
+topic = "Error Handling"
+hint = """
+try/except structure:
+    def to_number(s):
+        try:
+            return int(s)
+        except ValueError:
+            return -1
+
+    def safe_divide(a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return 0.0
+"""
+
+[[exercise]]
+name = "error_handling2"
+path = "exercises/09_error_handling/error_handling2.py"
+topic = "Error Handling"
+hint = """
+Multiple except blocks and finally:
+    def parse_input(data, key):
+        global cleaned_up
+        try:
+            value = data[key]     # can raise KeyError
+            return int(value)     # can raise ValueError
+        except KeyError:
+            return "Key missing"
+        except ValueError:
+            return "Not a valid integer"
+        finally:
+            cleaned_up = True     # ALWAYS runs
+"""
+
+[[exercise]]
+name = "error_handling3"
+path = "exercises/09_error_handling/error_handling3.py"
+topic = "Error Handling"
+hint = """
+Raising exceptions:
+    def validate_age(age):
+        if age < 0 or age > 150:
+            raise ValueError(f"Invalid age: {age}")
+        return age
+
+Custom exception class:
+    class AccountError(Exception):
+        def __init__(self, message, account_number):
+            super().__init__(message)
+            self.account_number = account_number
+"""
+
+# ─── Classes ────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "classes1"
+path = "exercises/10_classes/classes1.py"
+topic = "Classes"
+hint = """
+Class structure:
+    class Rectangle:
+        def __init__(self, width, height):
+            self.width = width
+            self.height = height
+
+        def area(self):
+            return self.width * self.height
+
+        def perimeter(self):
+            return 2 * (self.width + self.height)
+
+        def is_square(self):
+            return self.width == self.height
+"""
+
+[[exercise]]
+name = "classes2"
+path = "exercises/10_classes/classes2.py"
+topic = "Classes"
+hint = """
+Class attribute (shared by all instances):
+    class Account:
+        interest_rate = 0.02   ← at the top of the class, without self
+
+Instance attributes (each object has its own):
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+"""
+
+[[exercise]]
+name = "classes3"
+path = "exercises/10_classes/classes3.py"
+topic = "Classes"
+hint = """
+Inheritance and super():
+    class Circle(Shape):
+        def __init__(self, radius):
+            super().__init__("Circle")  ← calls Shape.__init__
+            self.radius = radius
+
+        def area(self):
+            return math.pi * self.radius ** 2
+
+    class Square(Shape):
+        def __init__(self, side):
+            super().__init__("Square")
+            self.side = side
+
+        def area(self):
+            return self.side ** 2
+"""
+
+[[exercise]]
+name = "classes4"
+path = "exercises/10_classes/classes4.py"
+topic = "Classes"
+hint = """
+Magic methods:
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __abs__(self):
+        return math.sqrt(self.x**2 + self.y**2)
+"""
+
+# ─── Comprehensions ─────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "comprehensions1"
+path = "exercises/11_comprehensions/comprehensions1.py"
+topic = "Comprehensions"
+hint = """
+List comprehension pattern:
+    [expression for variable in iterable]
+
+For squares:
+    squares = [x**2 for x in range(10)]
+
+For uppercase:
+    uppercase = [w.upper() for w in words]
+
+For lengths:
+    lengths = [len(w) for w in words]
+"""
+
+[[exercise]]
+name = "comprehensions2"
+path = "exercises/11_comprehensions/comprehensions2.py"
+topic = "Comprehensions"
+hint = """
+Filtered comprehension:
+    [expression for var in iterable if condition]
+
+For even_squares (square numbers 0-81 that are even):
+    [x**2 for x in range(10) if (x**2) % 2 == 0]
+    or simpler: [x**2 for x in range(0, 10, 2)]
+
+For nested (flatten):
+    [number for row in matrix for number in row]
+"""
+
+[[exercise]]
+name = "comprehensions3"
+path = "exercises/11_comprehensions/comprehensions3.py"
+topic = "Comprehensions"
+hint = """
+Dict comprehension:
+    {key: value for item in iterable}
+    word_lengths = {word: len(word) for word in words}
+
+Set comprehension (curly braces, no duplicates):
+    first_letters = {word[0] for word in words}
+
+For group_by_length:
+    length = len(word)
+    if length not in result:
+        result[length] = []
+    result[length].append(word)
+"""
+
+# ─── Iterators ──────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "iterators1"
+path = "exercises/12_iterators/iterators1.py"
+topic = "Iterators"
+hint = """
+Creating and using an iterator:
+    it = iter([10, 20, 30, 40, 50])
+    first = next(it)    → 10
+    second = next(it)   → 20
+    third = next(it)    → 30
+
+For nth_element:
+    it = iter(iterable)
+    for _ in range(n):
+        next(it, None)     ← skips n elements
+    return next(it, None)  ← returns the nth element
+"""
+
+[[exercise]]
+name = "iterators2"
+path = "exercises/12_iterators/iterators2.py"
+topic = "Iterators"
+hint = """
+Iterator protocol:
+    class Countdown:
+        def __init__(self, start):
+            self.current = start
+
+        def __iter__(self):
+            return self
+
+        def __next__(self):
+            if self.current < 0:
+                raise StopIteration
+            value = self.current
+            self.current -= 1
+            return value
+"""
+
+# ─── Generators ─────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "generators1"
+path = "exercises/13_generators/generators1.py"
+topic = "Generators"
+hint = """
+Fibonacci generator with yield:
+    def fibonacci():
+        a, b = 0, 1
+        while True:
+            yield a
+            a, b = b, a + b
+
+For take:
+    def take(n, generator):
+        result = []
+        for _ in range(n):
+            result.append(next(generator))
+        return result
+
+    or shorter: return [next(generator) for _ in range(n)]
+"""
+
+[[exercise]]
+name = "generators2"
+path = "exercises/13_generators/generators2.py"
+topic = "Generators"
+hint = """
+Generator expression (like list comprehension, but with ()):
+    even_gen = (x for x in range(100) if x % 2 == 0)
+
+For running_average with send():
+    def running_average():
+        total = 0
+        count = 0
+        value = yield None    ← first initialization with next()
+        while True:
+            total += value
+            count += 1
+            value = yield total / count
+"""
+
+# ─── Modules ────────────────────────────────────────────────────────────────
+
+[[exercise]]
+name = "modules1"
+path = "exercises/14_modules/modules1.py"
+topic = "Modules"
+hint = """
+Import styles:
+    import math
+    hypotenuse = math.sqrt(3**2 + 4**2)   → 5.0
+
+    from math import pi as PI
+    circle_area = PI * 5**2
+
+    import statistics as stats
+    average = stats.mean([1,2,3,4,5,6,7,8,9,10])   → 5.5
+"""
+
+[[exercise]]
+name = "modules2"
+path = "exercises/14_modules/modules2.py"
+topic = "Modules"
+hint = """
+The __main__ guard prevents code from running on import:
+    def double(x):
+        return x * 2
+
+    if __name__ == "__main__":
+        print(f"Result: {double(21)}")   ← only runs when called directly!
+
+Move the print() call into the if __name__ == "__main__": block.
+Don't forget to implement double() (return x * 2)!
+"""
