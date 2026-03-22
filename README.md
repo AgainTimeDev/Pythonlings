@@ -14,7 +14,7 @@ git clone https://github.com/AgainTimeDev/Pythonlings.git
 cd Pythonlings
 
 # 2. Start watch mode (recommended!)
-python pythonlings.py watch
+python3 pythonlings.py watch
 ```
 
 Python 3.8+ required. No external dependencies.
