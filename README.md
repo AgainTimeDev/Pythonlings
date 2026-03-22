@@ -10,8 +10,8 @@ Pythonlings guides you through small, focused exercises where you write and run 
 
 ```bash
 # 1. Clone the repository
-git clone <url> pythonlings
-cd pythonlings
+git clone https://github.com/AgainTimeDev/Pythonlings.git
+cd Pythonlings
 
 # 2. Start watch mode (recommended!)
 python pythonlings.py watch
